@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wakken</title>
+        <script src="../js/main.js" defer></script>
+        <script src="../js/game.js" defer></script>
+        <link rel="stylesheet" href="../css/native.scss" />
+        <link rel="stylesheet" href="../css/home.scss" />
+    </head>
+    <body>
+        <div class="header">
+            <h2>Wakken spel</h2>
+        </div>
+
+        <div class="dices" id="dices"></div>
+
+        <div class="controls">
+            <label for="dice-count">
+                Dice count:
+                <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
+            </label>
+
+            <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </body>
+</html>
