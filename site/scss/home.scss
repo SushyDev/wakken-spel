@@ -6,6 +6,7 @@
     flex-direction: column;
     z-index: 3;
     box-shadow: 0 0 16px 0 black;
+    border-radius: 0 0px 16px 16px;
 
     h2 {
         margin: 20px 00px 0 20px;
@@ -44,6 +45,9 @@
     top: 0;
     z-index: 2;
     box-shadow: 0 0 16px 0 black;
+    border-radius: 0 0px 16px 16px;
+    padding-top: 16px;
+    margin-top: -16px;
 
     .dice {
         &:first-of-type {
@@ -59,8 +63,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 120px;
-        width: 120px;
+        height: 110px;
+        width: 110px;
         img {
             height: 80%;
             filter: invert(1);
@@ -72,7 +76,7 @@
     height: fit-content;
 
     .setup {
-        margin: 12px;
+        margin: 16px;
         padding: 12px;
         display: flex;
         border-radius: 16px;
