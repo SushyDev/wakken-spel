@@ -7,35 +7,44 @@ let stats = {
     rolls: -1,
 };
 
+const hardMode = () => (sessionStorage.getItem('penguings') == 'true' ? true : false);
+
 // ! Build answer based on current dice
 const getAnswer = () => {
-    const correct = {
-        icebears: 0,
-        wakken: 0,
-        penguings: 0,
-    };
+    const correct = hardMode()
+        ? {
+              icebears: 0,
+              wakken: 0,
+              penguings: 0,
+          }
+        : {
+              icebears: 0,
+              wakken: 0,
+          };
+
+    console.log(correct);
 
     // ? For each dice in container check values
     document.getElementById('dices').childNodes.forEach((dice) => {
         const number = dice.value;
 
-        if (number === 6) correct.penguings += 3;
+        if (number === 6 && hardMode()) correct.penguings += 3;
         if (number === 5) {
             correct.icebears += 4;
             correct.wakken++;
-            correct.penguings += 4;
+            if (hardMode()) correct.penguings += 4;
         }
-        if (number === 4) correct.penguings += 5;
+        if (number === 4 && hardMode()) correct.penguings += 5;
         if (number === 3) {
             correct.icebears += 2;
             correct.wakken++;
-            correct.penguings += 6;
+            if (hardMode()) correct.penguings += 6;
         }
-        if (number === 2) correct.penguings += 1;
+        if (number === 2 && hardMode()) correct.penguings += 1;
         if (number === 1) {
             correct.icebears += 0;
             correct.wakken++;
-            correct.penguings += 2;
+            if (hardMode()) correct.penguings += 2;
         }
 
         // ! Write algorithm to calculate bottom side of dice
@@ -84,7 +93,9 @@ window.answer = function answer() {
     const icebears = parseInt(document.getElementById('icebears').value);
     const wakken = parseInt(document.getElementById('wakken').value);
     const penguings = parseInt(document.getElementById('penguings').value);
-    const answer = {icebears, wakken, penguings};
+    const answer = hardMode() ? {icebears, wakken, penguings} : {icebears, wakken};
+
+    console.log(getAnswer(), answer);
 
     // ?  On correct
     if (JSON.stringify(answer) === JSON.stringify(getAnswer())) {
@@ -115,3 +126,6 @@ window.addDices = function addDices(amount) {
     for (let added = 1; added <= amount; added++) container.appendChild(createDice());
 };
 addDices(3);
+
+window.toggleMode = (elem) => sessionStorage.setItem('penguings', elem.checked);
+sessionStorage.setItem('penguings', false);
