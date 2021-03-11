@@ -13,12 +13,12 @@ const hardMode = () => (sessionStorage.getItem('penguings') === 'true' ? true : 
 const getAnswer = () => {
     const answer = hardMode()
         ? {
-              icebears: 0,
+              polarbears: 0,
               iceholes: 0,
               penguings: 0,
           }
         : {
-              icebears: 0,
+              polarbears: 0,
               iceholes: 0,
           };
 
@@ -36,15 +36,15 @@ const getAnswer = () => {
         }
 
         if (number === 5) {
-            answer.icebears += 4;
+            answer.polarbears += 4;
             answer.iceholes++;
         }
         if (number === 3) {
-            answer.icebears += 2;
+            answer.polarbears += 2;
             answer.iceholes++;
         }
         if (number === 1) {
-            answer.icebears += 0;
+            answer.polarbears += 0;
             answer.iceholes++;
         }
 
@@ -104,10 +104,10 @@ window.get = () => console.log(getAnswer());
 
 // ! Verify answer
 window.answer = function answer() {
-    const icebears = parseInt(document.getElementById('icebears').value);
+    const polarbears = parseInt(document.getElementById('polarbears').value);
     const iceholes = parseInt(document.getElementById('iceholes').value);
     const penguings = parseInt(document.getElementById('penguings').value);
-    const answer = hardMode() ? {icebears, iceholes, penguings} : {icebears, iceholes};
+    const answer = hardMode() ? {polarbears, iceholes, penguings} : {polarbears, iceholes};
 
     // ? On correct
     if (JSON.stringify(answer) === JSON.stringify(getAnswer())) {
@@ -121,7 +121,7 @@ window.answer = function answer() {
     }
 
     // # Display correct answer
-    document.getElementById('icebears-correct').value = getAnswer().icebears || 0;
+    document.getElementById('polarbears-correct').value = getAnswer().polarbears || 0;
     document.getElementById('iceholes-correct').value = getAnswer().iceholes || 0;
     document.getElementById('penguings-correct').value = getAnswer().penguings || 0;
 
