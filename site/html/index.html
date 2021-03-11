@@ -18,15 +18,38 @@
         <div class="dices" id="dices"></div>
 
         <div class="controls">
-            <label for="dice-count">
-                Dice count:
-                <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
-            </label>
+            <h2>Config</h2>
+            <div class="config">
+                <label for="dice-count">
+                    Dice count:
+                    <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
+                </label>
 
-            <label class="checkbox-container">
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-            </label>
+                <button onclick="addDices(document.getElementById('dice-count').value)">Reroll</button>
+                <button onclick="get()">Get</button>
+            </div>
+
+            <div class="input">
+                <h2>Your answer</h2>
+                <label for="">
+                    Wakken
+                    <input type="number" name="wakken" id="wakken" />
+                </label>
+                <label for="">
+                    Icebears
+                    <input type="number" name="icebears" id="icebears" />
+                </label>
+                <label for="">
+                    Penguings
+                    <input type="number" name="penguings" id="penguings" />
+                </label>
+
+                <label class="checkbox-container">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                </label>
+                <button onclick="answer()">Answer</button>
+            </div>
         </div>
     </body>
 </html>
