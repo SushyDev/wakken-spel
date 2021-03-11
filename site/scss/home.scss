@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     z-index: 3;
-    box-shadow: 0 0px 16px 0 black;
+    box-shadow: 0 0 16px 0 black;
 
     h2 {
         margin: 20px 00px 0 20px;
@@ -36,14 +36,14 @@
     min-height: 125px;
     background: var(--el2);
     display: flex;
+    align-items: center;
     overflow-x: auto;
-    overflow-y: hidden;
     width: 100%;
     margin: 0 auto 12px auto;
     position: sticky;
     top: 0;
     z-index: 2;
-    box-shadow: 0 0px 16px 0 black;
+    box-shadow: 0 0 16px 0 black;
 
     .dice {
         &:first-of-type {
@@ -59,8 +59,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 125px;
-        width: 125px;
+        height: 120px;
+        width: 120px;
         img {
             height: 80%;
             filter: invert(1);
@@ -78,7 +78,7 @@
         border-radius: 16px;
         background: var(--el2);
         flex-direction: column;
-        box-shadow: 0 0px 16px 0 black;
+        box-shadow: 0 0 16px 0 black;
 
         .top,
         .bottom {
@@ -107,7 +107,7 @@
 
         .card {
             padding: 12px;
-            box-shadow: 0 0px 16px 0 black;
+            box-shadow: 0 0 16px 0 black;
             background: var(--el2);
             margin: 12px;
             border-radius: 16px;
@@ -154,6 +154,7 @@
         background: var(--el3);
         display: flex;
         flex-direction: column;
+        border-radius: 16px;
 
         .dialog-title {
             padding: 20px;
