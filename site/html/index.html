@@ -4,80 +4,87 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Wakken</title>
+        <title>Icehole game</title>
         <script src="../js/main.js" defer></script>
         <script src="../js/game.js" defer></script>
         <link rel="stylesheet" href="../scss/native.scss" />
         <link rel="stylesheet" href="../scss/home.scss" />
+        <meta name="theme-color" content="#73ba25" />
+        <link rel="shortcut icon" href="../favico.png" type="image/x-icon" />
     </head>
     <body>
         <div class="header">
-            <h2>Wakken spel</h2>
+            <h2>Icehole game</h2>
         </div>
 
-        <div class="dices" id="dices"></div>
+        <div class="overflow-container">
+            <div class="dices" id="dices"></div>
 
-        <div class="controls">
-            <h2>Config</h2>
-            <div class="config">
-                <label for="dice-count">
-                    Dice count:
-                    <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
-                </label>
+            <div class="controls">
+                <div class="config">
+                    <h2>Config</h2>
+                    <div class="top">
+                        <label for="dice-count">
+                            Dice count:
+                            <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
+                        </label>
 
-                <button onclick="addDices(document.getElementById('dice-count').value)">Reroll</button>
+                        <button onclick="reroll()">Reroll</button>
+                    </div>
 
-                <label class="checkbox-container">
-                    <input type="checkbox" onchange="toggleMode(this)" />
-                    <span class="checkmark"></span>
-                </label>
+                    <div class="bottom">
+                        <label class="checkbox-container">
+                            <input type="checkbox" onchange="toggleMode(this)" />
+                            <span class="checkmark"></span>
+                        </label>
 
-                <p>Penguing mode</p>
-                <!--
+                        <p>Penguing mode</p>
+                    </div>
+                    <!--
                     <button onclick="get()">Get</button>
-                -->
-            </div>
+                --></div>
 
-            <div class="bottom">
-                <div class="input">
-                    <h2>Your answer:</h2>
-                    <label for="">
-                        Wakken:
-                        <input type="number" name="wakken" id="wakken" value="0" />
-                    </label>
-                    <label for="">
-                        Icebears:
-                        <input type="number" name="icebears" id="icebears" value="0" />
-                    </label>
-                    <label for="">
-                        Penguings:
-                        <input type="number" name="penguings" id="penguings" value="0" />
-                    </label>
+                <div class="controls-cards">
+                    <div class="input card">
+                        <h2>Your answer:</h2>
 
-                    <button onclick="answer()" class="answer">Answer</button>
-                </div>
+                        <div class="spacer-grid">
+                            <label> Iceholes: </label>
+                            <input type="number" id="iceholes" value="0" />
+                            <label> Icebears: </label>
+                            <input type="number" id="icebears" value="0" />
+                            <label> Penguings: </label>
+                            <input type="number" id="penguings" value="0" />
+                        </div>
 
-                <div class="input">
-                    <h2>Correct answer was:</h2>
-                    <label for="">
-                        Wakken:
-                        <input type="number" name="wakken" id="wakken-correct" value="0" disabled />
-                    </label>
-                    <label for="">
-                        Icebears:
-                        <input type="number" name="icebears" id="icebears-correct" value="0" disabled />
-                    </label>
-                    <label for="">
-                        Penguings:
-                        <input type="number" name="penguings" id="penguings-correct" value="0" disabled />
-                    </label>
-                </div>
+                        <button onclick="answer()" class="answer">Answer</button>
+                    </div>
 
-                <div class="stats">
-                    <h2>Stats</h2>
-                    <p id="stats-rolls">Rolled the dice: 0</p>
-                    <p id="stats-correct">Answered correctly: 0</p>
-                    <p id="stats-incorrect">Answered wrong: 0</p>
+                    <div class="answer card">
+                        <h2>Correct answer was:</h2>
+
+                        <div class="spacer-grid">
+                            <label> Iceholes: </label>
+                            <input type="number" id="iceholes-correct" value="0" disabled />
+                            <label> Icebears: </label>
+                            <input type="number" id="icebears-correct" value="0" disabled />
+                            <label> Penguings: </label>
+                            <input type="number" id="penguings-correct" value="0" disabled />
+                        </div>
+                    </div>
+
+                    <div class="stats card">
+                        <h2>Stats:</h2>
+
+                        <div class="spacer-grid">
+                            <label>Rerolled the dice: </label>
+                            <input type="number" id="stats-rolls" value="0" disabled />
+                            <label>Answered correctly: </label>
+                            <input type="number" id="stats-correct" value="0" disabled />
+                            <label>Answered wrong: </label>
+                            <input type="number" id="stats-incorrect" value="0" disabled />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
     height: 170px;
     background: var(--main);
     display: flex;
+    z-index: 1;
 
     h2 {
         margin: 20px;
@@ -14,8 +15,11 @@
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
     .dice {
         &:first-of-type {
@@ -38,60 +42,55 @@
             filter: invert(1);
         }
     }
-
-    &::-webkit-scrollbar {
-        position: relative;
-        min-height: 10px;
-        top: 20px;
-    }
 }
 
 .controls {
-    background: var(--el3);
-    display: flex;
-    height: 100%;
-    align-items: flex-start;
-    padding: 20px;
-    flex-direction: column;
-    overflow-y: auto;
+    height: fit-content;
 
     .config {
+        padding: 12px;
         display: flex;
+        flex-direction: column;
+
+        .top,
+        .bottom {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .bottom {
+            align-items: center;
+
+            p {
+                margin-left: 12px;
+            }
+        }
 
         button {
             height: fit-content;
         }
     }
 
-    .bottom {
-        display: flex;
-        justify-content: space-between;
+    .controls-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 400px);
         width: 100%;
+        justify-content: space-evenly;
 
-        .input {
-            display: flex;
-            flex-direction: column;
+        .card {
+            padding: 12px;
 
-            input {
-                width: 64px;
-            }
-
-            button.answer {
-                width: fit-content;
-            }
-        }
-
-        .stats {
-            p {
-                margin: 0;
-                padding: 0;
+            .spacer-grid {
+                margin: 12px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                grid-gap: 4px;
+                input {
+                    width: 64px;
+                    margin-left: auto;
+                }
             }
         }
-    }
-}
-
-@media (max-width: 920px) {
-    .bottom {
-        flex-direction: column;
     }
 }
