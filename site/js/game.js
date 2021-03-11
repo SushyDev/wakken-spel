@@ -1,10 +1,14 @@
 // ! Import all the dice imaged in a object
 import dices from '../dice/*.svg';
 
+let stats = {
+    correct: 0,
+    incorrect: 0,
+    rolls: -1,
+};
+
 // ! Build answer based on current dice
 const getAnswer = () => {
-    const container = document.getElementById('dices');
-
     const correct = {
         icebears: 0,
         wakken: 0,
@@ -12,21 +16,34 @@ const getAnswer = () => {
     };
 
     // ? For each dice in container check values
-    container.childNodes.forEach((dice) => {
+    document.getElementById('dices').childNodes.forEach((dice) => {
         const number = dice.value;
 
+        if (number === 6) correct.penguings += 3;
         if (number === 5) {
             correct.icebears += 4;
             correct.wakken++;
+            correct.penguings += 4;
         }
+        if (number === 4) correct.penguings += 5;
         if (number === 3) {
             correct.icebears += 2;
             correct.wakken++;
+            correct.penguings += 6;
         }
+        if (number === 2) correct.penguings += 1;
         if (number === 1) {
             correct.icebears += 0;
             correct.wakken++;
+            correct.penguings += 2;
         }
+
+        // ! Write algorithm to calculate bottom side of dice
+        /*
+        1 = 2 / 2 = 1
+        3 = 6 / 6 = 3
+        4 = 5 / 5 = 4
+        */
     });
 
     return correct;
@@ -56,7 +73,7 @@ const createDiceOption = (num) => {
 };
 
 // ! Add options to select
-for (let added = 1; added <= 12; added++) document.getElementById('dice-count').appendChild(createDiceOption(added));
+for (let added = 3; added <= 12; added++) document.getElementById('dice-count').appendChild(createDiceOption(added));
 
 // ? Winows functions
 // ! Log answer
@@ -72,15 +89,29 @@ window.answer = function answer() {
     // ?  On correct
     if (JSON.stringify(answer) === JSON.stringify(getAnswer())) {
         alert('Congratiolations, thats the correct answer');
-        // ? reset
-        addDices(document.getElementById('dice-count').value);
+        stats.correct++;
+        document.getElementById('stats-correct').textContent = `Answered correctly: ${stats.correct}`;
+    } else {
+        alert('You guessed it wrong, retry');
+        stats.incorrect++;
+        document.getElementById('stats-incorrect').textContent = `Answered wrong: ${stats.incorrect}`;
     }
+
+    // ? Display correct answer
+    document.getElementById('icebears-correct').value = getAnswer().icebears;
+    document.getElementById('wakken-correct').value = getAnswer().wakken;
+    document.getElementById('penguings-correct').value = getAnswer().penguings;
+
+    // ? Reset
+    addDices(document.getElementById('dice-count').value);
 };
 
 // ! For dice count add dice to container
 window.addDices = function addDices(amount) {
     const container = document.getElementById('dices');
     container.innerHTML = '';
+    stats.rolls++;
+    document.getElementById('stats-rolls').textContent = `Rolled the dice: ${stats.rolls}`;
     for (let added = 1; added <= amount; added++) container.appendChild(createDice());
 };
-addDices(1);
+addDices(3);

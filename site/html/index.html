@@ -26,29 +26,52 @@
                 </label>
 
                 <button onclick="addDices(document.getElementById('dice-count').value)">Reroll</button>
-                <button onclick="get()">Get</button>
+                <!--
+                    <button onclick="get()">Get</button>
+                -->
             </div>
 
-            <div class="input">
-                <h2>Your answer</h2>
-                <label for="">
-                    Wakken
-                    <input type="number" name="wakken" id="wakken" />
-                </label>
-                <label for="">
-                    Icebears
-                    <input type="number" name="icebears" id="icebears" />
-                </label>
-                <label for="">
-                    Penguings
-                    <input type="number" name="penguings" id="penguings" />
-                </label>
+            <div class="bottom">
+                <div class="input">
+                    <h2>Your answer:</h2>
+                    <label for="">
+                        Wakken:
+                        <input type="number" name="wakken" id="wakken" value="0" />
+                    </label>
+                    <label for="">
+                        Icebears:
+                        <input type="number" name="icebears" id="icebears" value="0" />
+                    </label>
+                    <label for="">
+                        Penguings:
+                        <input type="number" name="penguings" id="penguings" value="0" />
+                    </label>
 
-                <label class="checkbox-container">
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                </label>
-                <button onclick="answer()">Answer</button>
+                    <button onclick="answer()" class="answer">Answer</button>
+                </div>
+
+                <div class="input">
+                    <h2>Correct answer was:</h2>
+                    <label for="">
+                        Wakken:
+                        <input type="number" name="wakken" id="wakken-correct" value="0" disabled />
+                    </label>
+                    <label for="">
+                        Icebears:
+                        <input type="number" name="icebears" id="icebears-correct" value="0" disabled />
+                    </label>
+                    <label for="">
+                        Penguings:
+                        <input type="number" name="penguings" id="penguings-correct" value="0" disabled />
+                    </label>
+                </div>
+
+                <div class="stats">
+                    <h2>Stats</h2>
+                    <p id="stats-rolls">Rolled the dice: 0</p>
+                    <p id="stats-correct">Answered correctly: 0</p>
+                    <p id="stats-incorrect">Answered wrong: 0</p>
+                </div>
             </div>
         </div>
     </body>

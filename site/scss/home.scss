@@ -53,9 +53,45 @@
     align-items: flex-start;
     padding: 20px;
     flex-direction: column;
+    overflow-y: auto;
 
-    .input {
+    .config {
         display: flex;
-        flex-direction: column
-    };
+
+        button {
+            height: fit-content;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .input {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                width: 64px;
+            }
+
+            button.answer {
+                width: fit-content;
+            }
+        }
+
+        .stats {
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .bottom {
+        flex-direction: column;
+    }
 }
