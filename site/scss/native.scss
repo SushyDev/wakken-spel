@@ -61,18 +61,27 @@ html {
             }
         }
 
+        input[type='number'] {
+            // Hide up and down buttons on number input
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
         .checkbox-container {
             position: relative;
             height: 1.8em;
             width: 1.8em;
             margin: 9px;
 
-            /* Hide the browser's default checkbox */
-            input {
+            // Hide the browser's default checkbox
+            input[type='checkbox'] {
                 display: none;
             }
 
-            /* Create a custom checkbox */
+            // Create a custom checkbox
             .checkmark {
                 position: absolute;
                 top: 0;
@@ -81,7 +90,7 @@ html {
                 width: 1.8em;
                 background-color: #ffffff;
 
-                /* Create the checkmark/indicator (hidden when not checked) */
+                // Create the checkmark/indicator (hidden when not checked)
                 &:after {
                     content: '';
                     position: absolute;
@@ -96,21 +105,16 @@ html {
                     -ms-transform: rotate(45deg);
                     transform: rotate(45deg);
                 }
-
-                /* Style the checkmark/indicator */
-                *:focus {
-                    outline: none;
-                }
             }
 
-            /* On mouse-over, add a grey background color */
+            // On mouse-over, add a grey background color
             &:hover {
                 input ~ .checkmark {
                     background-color: var(--highlight);
                 }
             }
 
-            /* When the checkbox is checked, add a blue background */
+            // When the checkbox is checked, add a blue background
             input:checked ~ .checkmark {
                 background-color: var(--accent);
             }
@@ -119,7 +123,7 @@ html {
                 box-shadow: 0 0 0 4px var(--highlight);
             }
 
-            /* Show the checkmark when checked */
+            // Show the checkmark when checked
             input:checked ~ .checkmark {
                 &:after {
                     display: block;
@@ -127,4 +131,10 @@ html {
             }
         }
     }
+}
+
+*,
+*:focus,
+*:hover {
+    outline: none;
 }

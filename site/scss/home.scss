@@ -91,6 +91,10 @@
                     margin-left: auto;
                 }
             }
+
+            .penguings.disabled {
+                display: none;
+            }
         }
     }
 }

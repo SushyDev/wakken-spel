@@ -85,6 +85,15 @@ const createDiceOption = (num) => {
     return option;
 };
 
+// ! Check penguing mode
+function checkMode(checked) {
+    if (checked) {
+        document.querySelectorAll('.penguings').forEach((element) => element.classList.remove('disabled'));
+    } else {
+        document.querySelectorAll('.penguings').forEach((element) => element.classList.add('disabled'));
+    }
+}
+
 // # Add options 3-12 to select
 for (let added = 3; added <= 12; added++) document.getElementById('dice-count').appendChild(createDiceOption(added));
 
@@ -135,7 +144,13 @@ window.addDices = function addDices(amount) {
     for (let added = 1; added <= amount; added++) container.appendChild(createDice());
 };
 
+// ! Toggle penguing mode
+window.toggleMode = (elem) => {
+    sessionStorage.setItem('penguings', elem.checked);
+    checkMode(elem.checked);
+};
+
 // # Do some stuff on load
 addDices(3);
-window.toggleMode = (elem) => sessionStorage.setItem('penguings', elem.checked);
 sessionStorage.setItem('penguings', false);
+checkMode();
