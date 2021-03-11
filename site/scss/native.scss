@@ -1,7 +1,7 @@
 :root {
-    --main: #73ba25;
-    --accent: #8ab4f8;
-    --highlight: #424f63;
+    --main: #40c4ff;
+    --accent: #f57ba4;
+    --highlight: #f57ba480;
     --el1: #232321;
     --el2: #181818;
     --el3: #262626;
@@ -99,7 +99,7 @@ html {
                     top: 2px;
                     width: 0.4em;
                     height: 1.25em;
-                    border: solid var(--highlight);
+                    border: solid var(--el3);
                     border-width: 0 3px 3px 0;
                     -webkit-transform: rotate(45deg);
                     -ms-transform: rotate(45deg);
