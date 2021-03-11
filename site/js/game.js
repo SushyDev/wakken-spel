@@ -150,6 +150,12 @@ window.toggleMode = (elem) => {
     checkMode(elem.checked);
 };
 
+// ! Toggle help dialog
+window.help = function help() {
+    const dialog = document.getElementById('help-dialog');
+    dialog.classList.contains('shown') ? dialog.classList.remove('shown') : dialog.classList.add('shown');
+};
+
 // # Do some stuff on load
 addDices(3);
 sessionStorage.setItem('penguings', false);

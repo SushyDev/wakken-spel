@@ -15,76 +15,112 @@
     <body>
         <div class="header">
             <h2>Icehole game</h2>
+            <p>By 0328357</p>
+
+            <div class="help" onclick="help()">
+                <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
         </div>
 
-        <div class="overflow-container">
-            <div class="dices" id="dices"></div>
+        <div class="dices" id="dices"></div>
 
-            <div class="controls">
-                <div class="config">
-                    <h2>Config</h2>
-                    <div class="top">
-                        <label for="dice-count">
-                            Dice count:
-                            <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
-                        </label>
+        <div class="controls">
+            <div class="config">
+                <h2>Config</h2>
+                <div class="top">
+                    <label for="dice-count">
+                        Dice count:
+                        <select name="dice-count" id="dice-count" onchange="addDices(this.value)"></select>
+                    </label>
 
-                        <button onclick="reroll()">Reroll</button>
-                    </div>
+                    <button onclick="reroll()">Reroll</button>
+                </div>
 
-                    <div class="bottom">
-                        <label class="checkbox-container">
-                            <input type="checkbox" onchange="toggleMode(this)" />
-                            <span class="checkmark"></span>
-                        </label>
+                <div class="bottom">
+                    <label class="checkbox-container">
+                        <input type="checkbox" onchange="toggleMode(this)" />
+                        <span class="checkmark"></span>
+                    </label>
 
-                        <p>Penguing mode</p>
-                    </div>
-                    <!--
+                    <p>Penguing mode</p>
+                </div>
+                <!--
                     <button onclick="get()">Get</button>
-                --></div>
+                -->
+            </div>
 
-                <div class="controls-cards">
-                    <div class="input card">
-                        <h2>Your answer:</h2>
+            <div class="controls-cards">
+                <div class="input card">
+                    <h2>Your answer:</h2>
 
-                        <div class="spacer-grid">
-                            <label> Iceholes: </label>
-                            <input type="number" id="iceholes" value="0" />
-                            <label> Icebears: </label>
-                            <input type="number" id="icebears" value="0" />
-                            <label class="penguings"> Penguings: </label>
-                            <input class="penguings" type="number" id="penguings" value="0" />
-                        </div>
-
-                        <button onclick="answer()" class="answer">Answer</button>
+                    <div class="spacer-grid">
+                        <label> Iceholes: </label>
+                        <input type="number" id="iceholes" value="0" />
+                        <label> Icebears: </label>
+                        <input type="number" id="icebears" value="0" />
+                        <label class="penguings"> Penguings: </label>
+                        <input class="penguings" type="number" id="penguings" value="0" />
                     </div>
 
-                    <div class="answer card">
-                        <h2>Correct answer was:</h2>
+                    <button onclick="answer()" class="answer">Answer</button>
+                </div>
 
-                        <div class="spacer-grid">
-                            <label> Iceholes: </label>
-                            <input type="number" id="iceholes-correct" value="0" disabled />
-                            <label> Icebears: </label>
-                            <input type="number" id="icebears-correct" value="0" disabled />
-                            <label class="penguings"> Penguings: </label>
-                            <input class="penguings" type="number" id="penguings-correct" value="0" disabled />
-                        </div>
+                <div class="answer card">
+                    <h2>Correct answer was:</h2>
+
+                    <div class="spacer-grid">
+                        <label> Iceholes: </label>
+                        <input type="number" id="iceholes-correct" value="0" disabled />
+                        <label> Icebears: </label>
+                        <input type="number" id="icebears-correct" value="0" disabled />
+                        <label class="penguings"> Penguings: </label>
+                        <input class="penguings" type="number" id="penguings-correct" value="0" disabled />
                     </div>
+                </div>
 
-                    <div class="stats card">
-                        <h2>Stats:</h2>
+                <div class="stats card">
+                    <h2>Stats:</h2>
 
-                        <div class="spacer-grid">
-                            <label>Rerolled the dice: </label>
-                            <input type="number" id="stats-rolls" value="0" disabled />
-                            <label>Answered correctly: </label>
-                            <input type="number" id="stats-correct" value="0" disabled />
-                            <label>Answered wrong: </label>
-                            <input type="number" id="stats-incorrect" value="0" disabled />
-                        </div>
+                    <div class="spacer-grid">
+                        <label>Rerolled the dice: </label>
+                        <input type="number" id="stats-rolls" value="0" disabled />
+                        <label>Answered correctly: </label>
+                        <input type="number" id="stats-correct" value="0" disabled />
+                        <label>Answered wrong: </label>
+                        <input type="number" id="stats-incorrect" value="0" disabled />
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog" id="help-dialog">
+            <div class="dialog-surface">
+                <div class="dialog-title">
+                    <h2>Help</h2>
+                </div>
+                <div class="dialog-content">
+                    <h3>How to play:</h3>
+                    <p>A icehole is the middle dot of the dice, around it are the icebears.</p>
+
+                    <p>If the dice rolls on "5", the middle dot is the icehole and around it are 4 icebears</p>
+                    <p>If the dice rolls on "3", the middle dot is the icehole and around it are 2 icebears</p>
+                    <p>If the dice rolls on "1", the middle dot is the icehole and around it are no icebears</p>
+
+                    <p>If you roll any other number (“2”, “4”, “6”) that don't have a icehole in the middle it means there are also no icebears</p>
+
+                    <h3>Extra:</h3>
+                    <p>You can enable penguing mode by toggling the checkmark</p>
+                    <p>Penguing mode means you need to calculate all the penguings on the south pole (the opposite side of the dice) for each dice</p>
+
+                    <h3>Basic princeples:</h3>
+                    <p>This game is played with a minimum of 3 dice and a maximum of 12 dice, for each roll you need to calculate the icebears (optionally penguings) for all dices on screen</p>
+                </div>
+                <div class="dialog-actions">
+                    <button onclick="help()">Close</button>
                 </div>
             </div>
         </div>
