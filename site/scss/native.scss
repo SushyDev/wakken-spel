@@ -2,9 +2,9 @@
     --main: #40c4ff;
     --accent: #f57ba4;
     --highlight: #f57ba480;
-    --el1: #232321;
-    --el2: #181818;
-    --el3: #262626;
+    --el1: #121212;
+    --el2: #1d1d1d;
+    --el3: #2D2D2D;
 }
 
 html {
@@ -14,7 +14,7 @@ html {
     body {
         margin: 0;
         padding: 0;
-        background: var(--el3);
+        background: var(--el1);
 
         display: flex;
         flex-direction: column;
@@ -99,7 +99,7 @@ html {
                     top: 2px;
                     width: 0.4em;
                     height: 1.25em;
-                    border: solid var(--el3);
+                    border: solid var(--el1);
                     border-width: 0 3px 3px 0;
                     -webkit-transform: rotate(45deg);
                     -ms-transform: rotate(45deg);
