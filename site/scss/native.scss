@@ -4,7 +4,7 @@
     --highlight: #f57ba480;
     --el1: #121212;
     --el2: #1d1d1d;
-    --el3: #2D2D2D;
+    --el3: #2d2d2d;
 }
 
 html {
@@ -75,6 +75,8 @@ html {
             height: 1.8em;
             width: 1.8em;
             margin: 9px;
+            border-radius: 8px;
+            overflow: hidden;
 
             // Hide the browser's default checkbox
             input[type='checkbox'] {

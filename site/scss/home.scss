@@ -17,8 +17,8 @@
 
     .help {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 126px;
+        right: 14px;
         cursor: pointer;
         &,
         svg {
@@ -42,7 +42,7 @@
     width: 100%;
     margin: 0 auto 12px auto;
     position: sticky;
-    top: 0;
+    top: -16px;
     z-index: 2;
     box-shadow: 0 0 16px 0 black;
     border-radius: 0 0px 16px 16px;
@@ -105,15 +105,14 @@
 
     .controls-cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(33vw, 400px));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         width: 100%;
-        justify-content: space-evenly;
 
         .card {
             padding: 12px;
             box-shadow: 0 0 16px 0 black;
             background: var(--el2);
-            margin: 12px;
+            margin: 16px;
             border-radius: 16px;
 
             .spacer-grid {
