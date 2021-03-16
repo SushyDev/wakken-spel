@@ -48,7 +48,7 @@ const getAnswer = () => {
             answer.iceholes++;
         }
 
-        // ! Write algorthemithm to calculate bottom side of dice
+        // ! Write algorithm to calculate bottom side of dice
         /*
         ? 1 = 2 / 2 = 1
         ? 3 = 6 / 6 = 3
