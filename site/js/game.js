@@ -70,6 +70,7 @@ const createDice = () => {
 
     const img = document.createElement('img');
     img.src = dices[rand];
+    img.alt = rand
 
     dice.appendChild(img);
 

@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#40c4ff" />
+        <meta name="Wakken spel" />
+        <meta name="Description" content="Wakken spel game." />
         <title>Icehole game</title>
         <script src="../js/main.js" defer></script>
         <script src="../js/game.js" defer></script>
@@ -40,8 +42,8 @@
                 </div>
 
                 <div class="bottom">
-                    <label class="checkbox-container">
-                        <input type="checkbox" onchange="toggleMode(this)" />
+                    <label class="checkbox-container" for="penguing-mode">
+                        <input name="penguing-mode" type="checkbox" onchange="toggleMode(this)" />
                         <span class="checkmark"></span>
                     </label>
 
@@ -57,10 +59,10 @@
                     <h2>Your answer:</h2>
 
                     <div class="spacer-grid">
-                        <label> Iceholes: </label>
-                        <input type="number" id="iceholes" value="0" />
-                        <label> Polar bears: </label>
-                        <input type="number" id="polarbears" value="0" />
+                        <label for="iceholes"> Iceholes: </label>
+                        <input type="number" id="iceholes" name="iceholes" value="0" />
+                        <label for="polarbears"> Polar bears: </label>
+                        <input type="number" id="polarbears" name="polarbears" value="0" />
                         <label class="penguings"> Penguings: </label>
                         <input class="penguings" type="number" id="penguings" value="0" />
                     </div>
@@ -72,12 +74,12 @@
                     <h2>Correct answer was:</h2>
 
                     <div class="spacer-grid">
-                        <label> Iceholes: </label>
-                        <input type="number" id="iceholes-correct" value="0" disabled />
-                        <label> Polar bears: </label>
-                        <input type="number" id="polarbears-correct" value="0" disabled />
-                        <label class="penguings"> Penguings: </label>
-                        <input class="penguings" type="number" id="penguings-correct" value="0" disabled />
+                        <label for="iceholes-correct"> Iceholes: </label>
+                        <input type="number" id="iceholes-correct" name="iceholes-correct" value="0" disabled />
+                        <label for="polarbears-correct"> Polar bears: </label>
+                        <input type="number" id="polarbears-correct" for="polarbears-correct" value="0" disabled />
+                        <label class="penguings" for="penguings-correct"> Penguings: </label>
+                        <input class="penguings" type="number" id="penguings-correct" name="penguings-correct" value="0" disabled />
                     </div>
                 </div>
 
@@ -85,12 +87,12 @@
                     <h2>Stats:</h2>
 
                     <div class="spacer-grid">
-                        <label>Rerolled: </label>
-                        <input type="number" id="stats-rolls" value="0" disabled />
-                        <label>Correct: </label>
-                        <input type="number" id="stats-correct" value="0" disabled />
-                        <label>Wrong: </label>
-                        <input type="number" id="stats-incorrect" value="0" disabled />
+                        <label for="stats-rolls">Rerolled: </label>
+                        <input type="number" id="stats-rolls" name="stats-rolls" value="0" disabled />
+                        <label for="stats-correct">Correct: </label>
+                        <input type="number" id="stats-correct" name="stats-correct" value="0" disabled />
+                        <label for="stats-incorrect">Wrong: </label>
+                        <input type="number" id="stats-incorrect" name="stats-incorrect" value="0" disabled />
                     </div>
                 </div>
             </div>
