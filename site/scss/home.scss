@@ -42,7 +42,7 @@
     width: 100%;
     margin: 0 auto 12px auto;
     position: sticky;
-    top: -16px;
+    top: -16px !important;
     z-index: 2;
     box-shadow: 0 0 16px 0 black;
     border-radius: 0 0px 16px 16px;
@@ -74,6 +74,7 @@
 
 .controls {
     height: fit-content;
+    overflow: none;
 
     .setup {
         margin: 16px;
@@ -139,23 +140,21 @@
 }
 
 .dialog {
-    position: fixed;
-    height: 100%;
-    width: 100vw;
-    z-index: 3;
     display: none;
 
     &.shown {
+        position: fixed;
+        height: 100%;
+        width: 100vw;
+        z-index: 3;
         display: block;
     }
 
     .dialog-surface {
         position: relative;
-        top: 50%;
         transform: translateY(-50%);
         width: min(90%, 750px);
         height: 90vh;
-        background: red;
         margin: auto;
         box-shadow: 0 0px 20px var(--el3);
         background: var(--el3);

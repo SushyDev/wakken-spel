@@ -1,6 +1,8 @@
 // ! Import all the dice imaged in a object
 import dices from '../dice/*.svg';
 
+console.log(dices)
+
 let stats = {
     correct: 0,
     incorrect: 0,
